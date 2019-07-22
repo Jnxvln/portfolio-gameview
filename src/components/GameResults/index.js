@@ -9,6 +9,13 @@ class GameResults extends React.Component {
     this.state = {
 
     };
+
+    // 'this' Event Bindings
+    this.handleGameChosen = this.handleGameChosen.bind(this);
+  }
+
+  handleGameChosen (game) {
+    this.props.gameChosen(game);
   }
 
   render () {
@@ -22,7 +29,7 @@ class GameResults extends React.Component {
                 this.props.games.map((game, index) => {
                   return (
                     <li key={index}>
-                      <Game game={ game }/>
+                      <Game game={ game } onChoose={ this.handleGameChosen }/>
                     </li>
                   )
                 })

@@ -58,7 +58,7 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col>
-              <GameDetail/>
+              <GameDetail game={ this.state.gameChosen }/>
             </Col>
           </Row>
           <Row>
