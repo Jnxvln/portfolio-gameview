@@ -1,0 +1,12 @@
+/*  GameResults.css  */
+
+.GAMERESULTS_gamesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.GAMERESULTS_gamesList li {
+  list-style-type: none;
+  margin: 15px;
+}

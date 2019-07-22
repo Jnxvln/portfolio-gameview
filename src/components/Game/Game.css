@@ -1,0 +1,14 @@
+/*  Game.css  */
+
+.GAME_container {
+  border: 1px solid #464646;
+  margin: 5px;
+  width: 250px;
+  height: 250px;
+}
+
+.GAME_image {
+  width: 250px;
+  height: 250px;
+  padding: 5px;
+}
