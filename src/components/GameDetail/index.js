@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import axios from 'axios'
+import ReadMoreText from '../ReadMoreText'
 import './GameDetail.css'
 
 class GameDetail extends React.Component {
@@ -60,9 +60,10 @@ class GameDetail extends React.Component {
                 <p>Website: <a href={ this.props.game.details.website }>{ this.props.game.details.website }</a></p>
 
                 <p>Description: </p>
-                <p>{
+                <ReadMoreText limit={20} text={this.props.game.details.description}/>
+                {/* <p>{
                   this.props.game.details.description
-                }</p>
+                }</p> */}
               </div>
             }
           </Card.Body>
