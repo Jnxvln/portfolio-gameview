@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import SearchEmpty from '../SearchEmpty'
 import axios from 'axios'
 import './GameSearch.css'
 
@@ -68,7 +67,8 @@ class GameSearch extends React.Component {
       <div>
         <Card>
           <Card.Body>
-            <h3>Game Search</h3>
+            <h3>Search for a Game</h3>
+            <label>Results: </label>
             <select id="GAMESEARCH_gamesToView" value={ this.state.maxGamesToFetch } onChange={ this.handleChangeMaxGames }>
               <option value="5">5</option>
               <option value="10">10</option>
