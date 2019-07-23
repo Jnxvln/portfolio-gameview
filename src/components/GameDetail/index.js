@@ -60,7 +60,7 @@ class GameDetail extends React.Component {
                 <p>Website: <a href={ this.props.game.details.website }>{ this.props.game.details.website }</a></p>
 
                 <p>Description: </p>
-                <ReadMoreText limit={20} text={this.props.game.details.description}/>
+                <ReadMoreText limit={50} text={this.props.game.details.description}/>
                 {/* <p>{
                   this.props.game.details.description
                 }</p> */}

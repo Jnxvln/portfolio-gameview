@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import axios from 'axios'
+import './GameSearch.css'
 
 class GameSearch extends React.Component {
   constructor (props) {
@@ -15,6 +16,11 @@ class GameSearch extends React.Component {
 
     this.handleSearch = this.handleSearch.bind(this);
     this.handleChangeMaxGames = this.handleChangeMaxGames.bind(this);
+  }
+
+  componentDidMount () {
+    // Add focus to search field when component mounts
+    document.querySelector('#GAMESEARCH_search').focus();
   }
 
   handleSearch = event => {
