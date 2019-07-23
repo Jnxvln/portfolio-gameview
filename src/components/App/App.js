@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import GameSearch from '../GameSearch'
 import GameResults from '../GameResults'
 import GameDetail from '../GameDetail'
+import SearchEmpty from '../SearchEmpty'
 import SiteFooter from '../SiteFooter'
 import './App.css';
 
@@ -13,11 +14,25 @@ class App extends React.Component {
       // state data
       gamesFound: [],
       gameChosen: null,
+      isSearchEmpty: true
     };
 
     // 'this' Event Bindings
     this.handleGamesFound = this.handleGamesFound.bind(this);
     this.handleGameChosen = this.handleGameChosen.bind(this);
+    this.handleSearchEmpty = this.handleSearchEmpty.bind(this);
+  }
+
+  handleSearchEmpty (value) {
+    this.setState({
+      isSearchEmpty: value
+    }, () => {
+      console.log('Search empty: ', this.state.isSearchEmpty)
+      if (this.state.isSearchEmpty) {
+        document.querySelector('#GAMERESULTS_component').style.display = 'none';
+        document.querySelector('#GAMEDETAIL_component').style.display = 'none';
+      }
+    })
   }
 
   handleGamesFound (games) {
@@ -66,7 +81,7 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col>
-              <GameSearch returnGamesFound={ this.handleGamesFound }/>
+              <GameSearch returnGamesFound={ this.handleGamesFound } searchEmpty={ this.handleSearchEmpty }/>
             </Col>
           </Row>
           <Row>
@@ -77,6 +92,7 @@ class App extends React.Component {
           <Row>
             <Col>
               <GameDetail game={ this.state.gameChosen }/>
+              <SearchEmpty show={ this.state.isSearchEmpty }/>
             </Col>
           </Row>
           <Row>

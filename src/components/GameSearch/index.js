@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import SearchEmpty from '../SearchEmpty'
 import axios from 'axios'
 import './GameSearch.css'
 
@@ -24,10 +25,19 @@ class GameSearch extends React.Component {
   }
 
   handleSearch = event => {
+
     // Fetch the list of games as the user types
     this.setState({
       searchQuery: event.target.value 
     }, () => {
+
+      // If search field is empty, display a message
+      if (this.state.searchQuery === '' || this.state.searchQuery === null || this.state.searchQuery === undefined) {
+        this.props.searchEmpty(true);
+      } else {
+        this.props.searchEmpty(false);
+      }
+
       // Hide GameDetail component when searching for a game (but make sure GameResults is showing)
       document.querySelector('#GAMEDETAIL_component').style.display = 'none';
       document.querySelector('#GAMERESULTS_component').style.display = 'block';
