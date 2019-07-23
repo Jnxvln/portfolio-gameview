@@ -14,6 +14,7 @@ class GameSearch extends React.Component {
     };
 
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleChangeMaxGames = this.handleChangeMaxGames.bind(this);
   }
 
   handleSearch = event => {
@@ -40,13 +41,19 @@ class GameSearch extends React.Component {
     });
   }
 
+  handleChangeMaxGames (event) {
+    this.setState({
+      maxGamesToFetch: event.target.value
+    }, () => console.log('Max games: ', this.state.maxGamesToFetch))
+  }
+
   render () {
     return (
       <div>
         <Card>
           <Card.Body>
             <h3>Game Search</h3>
-            <select id="GAMESEARCH_gamesToView">
+            <select id="GAMESEARCH_gamesToView" value={ this.state.maxGamesToFetch } onChange={ this.handleChangeMaxGames }>
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="50">50</option>
