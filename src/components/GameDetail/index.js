@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import axios from 'axios'
+import './GameDetail.css'
 
 class GameDetail extends React.Component {
   constructor (props) {
@@ -9,14 +10,25 @@ class GameDetail extends React.Component {
       description: '',
       website: ''
     };
+
+    // 'this' Event Bindings
+    this.handleBackToResults = this.handleBackToResults.bind(this);
+  }
+
+  handleBackToResults () {
+    // Hide GameDetail component
+    document.querySelector('#GAMEDETAIL_component').style.display = 'none';
+    // Show GameResults component
+    document.querySelector('#GAMERESULTS_component').style.display = 'block';
   }
 
   render () {
     return (
-      <div>
+      <div id="GAMEDETAIL_component">
         <Card className="mt-4">
           <Card.Body>
             <h3>Detail Component</h3>
+            <button type="button" id="GAMEDETAIL_backButton" onClick={ this.handleBackToResults }>Back to Results</button>
             {
               this.props.game && <div>
                 <p>{ this.props.game.basic.name }</p>

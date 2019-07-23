@@ -21,8 +21,14 @@ class GameSearch extends React.Component {
     this.setState({
       searchQuery: event.target.value 
     }, () => {
+      // Hide GameDetail component when searching for a game (but make sure GameResults is showing)
+      document.querySelector('#GAMEDETAIL_component').style.display = 'none';
+      document.querySelector('#GAMERESULTS_component').style.display = 'block';
+
+
       // Encode the user's search query
       let encQuery = encodeURI(this.state.searchQuery)
+      
       // Fetch all games matching searchQuery and store in gamesFound
       axios.get(`https://api.rawg.io/api/games?page_size=${this.state.maxGamesToFetch}&search=${encQuery}`).then(res => {
         this.setState({

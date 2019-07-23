@@ -13,11 +13,18 @@ class GameResults extends React.Component {
 
     // 'this' Event Bindings
     this.handleGameChosen = this.handleGameChosen.bind(this);
+    this.handleBackToGame = this.handleBackToGame.bind(this);
   }
 
   handleGameChosen (game) {
     this.getDetailedInfo(game)
-    // this.props.gameChosen(game);
+  }
+
+  handleBackToGame () {
+    // Hide GameResults component
+    document.querySelector('#GAMERESULTS_component').style.display = 'none';
+    // Show GameDetail component
+    document.querySelector('#GAMEDETAIL_component').style.display = 'block';
   }
 
   async getDetailedInfo (game) {
@@ -28,7 +35,7 @@ class GameResults extends React.Component {
         website: res.data.website,
         description: res.data.description_raw
       }
-      if (detailedData.description) {
+      if (detailedData.description || detailedData.website) {
         // Detailed API information gathered, return augmented game object
         this.props.gameChosen(game, detailedData);
       } else {
@@ -42,10 +49,15 @@ class GameResults extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id="GAMERESULTS_component">
         <Card className="mt-4">
           <Card.Body>
             <h3>Game Results</h3>
+            {
+              /* If a game has previously been chosen, render a "Back To Game" button */
+              this.props.value && <button type="button" onClick={ this.handleBackToGame }>Back to Game</button>
+            }
+
             <ul className="GAMERESULTS_gamesList">
               {
                 this.props.games.map((game, index) => {

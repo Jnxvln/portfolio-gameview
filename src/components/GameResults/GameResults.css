@@ -1,5 +1,9 @@
 /*  GameResults.css  */
 
+#GAMERESULTS_component {
+  display: none;    /* hide on startup */
+}
+
 .GAMERESULTS_gamesList {
   display: flex;
   flex-wrap: wrap;

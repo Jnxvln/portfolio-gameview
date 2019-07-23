@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       // state data
       gamesFound: [],
-      gameChosen: undefined,
+      gameChosen: null,
     };
 
     // 'this' Event Bindings
@@ -23,12 +23,19 @@ class App extends React.Component {
   handleGamesFound (games) {
     this.setState({
       gamesFound: games
-    }, () => {
-      console.log('[inside App component] Games Found: ', this.state.gamesFound);
-    })
+    });
   }
 
   handleGameChosen (game, detailedData) {
+
+    // Scroll to top of the page
+    window.scrollTo(0, 100);
+
+    // Hide the GameResults component
+    document.querySelector('#GAMERESULTS_component').style.display = 'none';
+    // Show the GameDetail component
+    document.querySelector('#GAMEDETAIL_component').style.display = 'block';
+
     // Set gameChosen to the game the user selects
     let gameObj = null;
     if (detailedData) {
@@ -38,14 +45,10 @@ class App extends React.Component {
       }
       this.setState({
         gameChosen: gameObj
-      }, () => {
-        console.log('[App.js] Game chosen: ', this.state.gameChosen);
-      })
+      });
     } else {
       this.setState({
         gameChosen: game
-      }, () => {
-        console.log('[App.js] Game chosen: ', this.state.gameChosen);
       });
     }
   }
@@ -68,7 +71,7 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col>
-              <GameResults games={ this.state.gamesFound } gameChosen={ this.handleGameChosen }/>
+              <GameResults games={ this.state.gamesFound } gameChosen={ this.handleGameChosen } value={ this.state.gameChosen }/>
             </Col>
           </Row>
           <Row>
