@@ -3,7 +3,7 @@
 .GAMERESULTS_gamesList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .GAMERESULTS_gamesList li {

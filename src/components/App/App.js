@@ -28,11 +28,26 @@ class App extends React.Component {
     })
   }
 
-  handleGameChosen (game) {
+  handleGameChosen (game, detailedData) {
     // Set gameChosen to the game the user selects
-    this.setState({
-      gameChosen: game
-    }, () => console.log('[app.js] Game Chosen: ', this.state.gameChosen.name))
+    let gameObj = null;
+    if (detailedData) {
+      gameObj = {
+        basic: game,
+        details: detailedData
+      }
+      this.setState({
+        gameChosen: gameObj
+      }, () => {
+        console.log('[App.js] Game chosen: ', this.state.gameChosen);
+      })
+    } else {
+      this.setState({
+        gameChosen: game
+      }, () => {
+        console.log('[App.js] Game chosen: ', this.state.gameChosen);
+      });
+    }
   }
 
   render () {

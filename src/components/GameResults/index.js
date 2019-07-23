@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import Game from '../Game'
+import axios from 'axios'
 import './GameResults.css'
 
 class GameResults extends React.Component {
@@ -15,7 +16,28 @@ class GameResults extends React.Component {
   }
 
   handleGameChosen (game) {
-    this.props.gameChosen(game);
+    this.getDetailedInfo(game)
+    // this.props.gameChosen(game);
+  }
+
+  async getDetailedInfo (game) {
+    // Try to additionally obtain info from the detailed API endpoint
+    try {
+      let res = await axios.get(`https://api.rawg.io/api/games/${game.slug}`)
+      let detailedData = {
+        website: res.data.website,
+        description: res.data.description_raw
+      }
+      if (detailedData.description) {
+        // Detailed API information gathered, return augmented game object
+        this.props.gameChosen(game, detailedData);
+      } else {
+        // Could not gather information from detailed API endpoint, return basic information only
+        this.props.gameChosen(game);
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   render () {
