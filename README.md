@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Gameview
 
-In the project directory, you can run:
+A portfolio application utilizing the RAWG API to search and display information about video-games.
 
-### `npm start`
+## Starting The Application
 
-Runs the app in the development mode.<br>
+In the project directory, you can run: `npm start`
+
+This runs the app in development mode<br/>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## How To Use
 
-### `npm test`
+Once the application is running, begin typing the name of any video-game in the search field.
+Search results will appear below the input box as you are typing.<br/>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clicking on a game from the results list will show detailed information about the game. You can either click
+the 'Back to Results' button to view the list of games you just searched, or you may search for a new game.
 
-### `npm run build`
+## About the RAWG API
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The documentation for the RAWG API may be found here: [https://rawg.io/apidocs](https://rawg.io/apidocs "RAWG Database API")
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Disclaimer
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This application uses the RAWG API as described above. The nature of this application is purely for academic purposes only, to learn and understand the use of APIs in a Node.js environment. All credit goes to the developers at https://rawg.io. Should this application be held condemnable in any way, I, Jnxvln, will gladly halt all production of this application and any application utilizing the RAWG API in an illegal fashion and remove them from the Github repository.
