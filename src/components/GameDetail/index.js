@@ -9,7 +9,9 @@ class GameDetail extends React.Component {
     super(props);
     this.state = {
       description: '',
-      website: ''
+      website: '',
+      game: null,
+      gameDidLoad: undefined
     };
 
     // 'this' Event Bindings
@@ -43,7 +45,7 @@ class GameDetail extends React.Component {
           <Card.Body>
             <button type="button" id="GAMEDETAIL_backButton" onClick={ this.handleBackToResults }>Back to Results</button>
             {
-              this.props.game && 
+              this.props.game && this.props.game.basic &&
               <div>
                 <div className="GAMEDETAIL_grid">
                   <div className="GAMEDETAIL_grid_left">
@@ -99,6 +101,8 @@ class GameDetail extends React.Component {
                   <p>Description: </p>
                   <ReadMoreText limit={50} text={ this.props.game.details && this.props.game.details.description }/>
                 </div>
+              </div> || <div>
+                <p>Hmm...sorry, we could not retrieve any information about this game! Try another one!</p>
               </div>
             }
           </Card.Body>
