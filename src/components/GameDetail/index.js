@@ -106,15 +106,15 @@ class GameDetail extends React.Component {
                 </div>
 
                 {/* PHOTOS */}
-                <ul className="GAMEDETAIL_photos">
+                <div className="GAMEDETAIL_photos" data-uk-lightbox="animation: fade">
                     {
                       this.props.game.basic && this.props.game.basic.short_screenshots.map((photo, index) => {
-                        return <li key={index}>
+                        return <a key={index} href={photo.image}>
                           <img src={photo.image} alt={this.props.game.basic.name} className="GAMEDETAIL_image"/>
-                        </li>
+                        </a>
                       })
                     }
-                </ul>
+                </div>
 
               </div> || <div>
                 <p>Hmm...sorry, we could not retrieve any information about this game! Try another one!</p>

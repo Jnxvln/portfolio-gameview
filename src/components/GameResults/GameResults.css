@@ -12,7 +12,7 @@
 
 .GAMERESULTS_gamesList li {
   list-style-type: none;
-  margin: 15px;
+  margin: 25px;
   cursor: pointer;
   filter: brightness(0.7);
   transition: filter 0.35s;
