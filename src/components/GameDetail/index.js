@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { Card } from 'react-bootstrap'
 import ReadMoreText from '../ReadMoreText'
 import GameRatings from '../GameRatings'
@@ -50,7 +51,7 @@ class GameDetail extends React.Component {
                 <div className="GAMEDETAIL_grid">
                   <div className="GAMEDETAIL_grid_left">
                     <h3>{ this.props.game.basic.name ? this.props.game.basic.name : 'N/A' }</h3>
-                    <p>Released: { this.props.game.basic.released ? this.props.game.basic.released : 'N/A' }</p>
+                    <p>Released: { this.props.game.basic.released ? moment(this.props.game.basic.released).format('MM/DD/YYYY') : 'N/A' }</p>
                     <p>Find it on: { this.props.game.basic.stores ? this.props.game.basic.stores.map((store, index) => {
                       if (index < this.props.game.basic.stores.length-1) {
                         return store.store.name + ', ';
