@@ -33,7 +33,7 @@ class ReadMoreText extends React.Component {
       <div>
         <p className="READMORETEXT_text">
           {
-            this.state.readMore === false && this.props.text.split(' ', this.props.limit).map((word, index) => {
+            this.state.readMore === false && this.props.text && this.props.text.split(' ', this.props.limit).map((word, index) => {
             return <span key={index}>
               {word + ' '}
             </span>

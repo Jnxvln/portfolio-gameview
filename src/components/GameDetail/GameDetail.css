@@ -1,3 +1,35 @@
 #GAMEDETAIL_component {
   display: none;    /* hide on startup */
 }
+
+.GAMEDETAIL_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.GAMEDETAIL_grid_left {
+  border: 2px solid blue;
+  padding: 10px;
+}
+
+.GAMEDETAIL_description {
+  padding: 10px;
+}
+
+.GAMEDETAIL_grid_right {
+  border: 2px solid red;
+}
+
+#GAMEDETAIL_mainImage {
+  width: 80%;
+}
+
+#GAMEDETAIL_backButton {
+  margin-bottom: 10pt;
+}
+
+@media screen and (max-width: 850px) {
+  .GAMEDETAIL_grid {
+    grid-template-columns: 1fr;
+  }
+}
