@@ -43,13 +43,12 @@ class GameSearch extends React.Component {
       // Encode the user's search query
       let encQuery = encodeURI(this.state.searchQuery)
       
-      // Fetch all games matching searchQuery and store in gamesFound
-
-      axios({
-        method: 'get',
-        url: `https://api.rawg.io/api/games?page_size=${this.state.maxGamesToFetch}&search=${encQuery}`,
+      let config = {
         headers: { 'User-Agent': 'axios/0.19.0' }
-      }).then(res => {
+      }
+      
+      // Fetch all games matching searchQuery and store in gamesFound
+      axios.get(`https://api.rawg.io/api/games?page_size=${this.state.maxGamesToFetch}&search=${encQuery}`, config).then(res => {
         // console.log('Response: ', res);
         this.setState({
           gamesFound: res.data.results
