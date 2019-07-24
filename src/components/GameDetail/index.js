@@ -81,7 +81,7 @@ class GameDetail extends React.Component {
                       }
                     </p>
 
-                    {/*  RATINGS GO HERE */}
+                    {/* GAME RATINGS */}
                     <p>Ratings: </p>
                     <div>
                       <GameRatings game={this.props.game} />
@@ -89,6 +89,7 @@ class GameDetail extends React.Component {
 
                   </div> {/* end of LEFT grid */ }
 
+                  {/* VIDEO OR PHOTO DISPLAY */}
                   <div className="GAMEDETAIL_grid_right">
                     {/* Show the video OR an image if the video isn't available */}
                     {
@@ -97,10 +98,24 @@ class GameDetail extends React.Component {
                   </div>
 
                 </div>
+
+                {/* DESCRIPTION */}
                 <div className="GAMEDETAIL_description">
                   <p>Description: </p>
                   <ReadMoreText limit={50} text={ this.props.game.details && this.props.game.details.description }/>
                 </div>
+
+                {/* PHOTOS */}
+                <ul className="GAMEDETAIL_photos">
+                    {
+                      this.props.game.basic && this.props.game.basic.short_screenshots.map((photo, index) => {
+                        return <li key={index}>
+                          <img src={photo.image} alt={this.props.game.basic.name} className="GAMEDETAIL_image"/>
+                        </li>
+                      })
+                    }
+                </ul>
+
               </div> || <div>
                 <p>Hmm...sorry, we could not retrieve any information about this game! Try another one!</p>
               </div>

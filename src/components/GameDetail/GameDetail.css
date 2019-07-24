@@ -8,7 +8,7 @@
 }
 
 .GAMEDETAIL_grid_left {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   padding: 10px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .GAMEDETAIL_grid_right {
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 #GAMEDETAIL_mainImage {
@@ -26,6 +26,32 @@
 
 #GAMEDETAIL_backButton {
   margin-bottom: 10pt;
+}
+
+.GAMEDETAIL_photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.GAMEDETAIL_photos li {
+  list-style-type: none;
+}
+
+.GAMEDETAIL_image {
+  width: 200px;
+  height: 200px;
+  padding: 5px;
+  border: 1px solid gray;
+  margin: 5px;
+  cursor: pointer;
+  filter: brightness(0.7);
+  transition: all 0.3s;
+}
+
+.GAMEDETAIL_image:hover {
+  filter: brightness(1);
+  transition: all 0.3s;
 }
 
 @media screen and (max-width: 850px) {
