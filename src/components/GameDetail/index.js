@@ -47,33 +47,37 @@ class GameDetail extends React.Component {
               <div>
                 <div className="GAMEDETAIL_grid">
                   <div className="GAMEDETAIL_grid_left">
-                    <h3>{ this.props.game.basic && this.props.game.basic.name }</h3>
-                    <p>Released: { this.props.game.basic && this.props.game.basic.released }</p>
-                    <p>Find it on: { this.props.game.basic.stores && this.props.game.basic.stores.map((store, index) => {
+                    <h3>{ this.props.game.basic.name ? this.props.game.basic.name : 'N/A' }</h3>
+                    <p>Released: { this.props.game.basic.released ? this.props.game.basic.released : 'N/A' }</p>
+                    <p>Find it on: { this.props.game.basic.stores ? this.props.game.basic.stores.map((store, index) => {
                       if (index < this.props.game.basic.stores.length-1) {
                         return store.store.name + ', ';
                       } else {
                         return store.store.name
                       }
-                    })}</p>
+                    }) : 'N/A' }</p>
 
-                    <p>Play it on: { this.props.game.basic.platforms && this.props.game.basic.platforms.map((platform, index) => {
+                    <p>Play it on: { this.props.game.basic.platforms ? this.props.game.basic.platforms.map((platform, index) => {
                       if (index < this.props.game.basic.platforms.length-1) {
                         return platform.platform.name + ', ';
                       } else {
                         return platform.platform.name
                       }
-                    })}</p>
+                    }) : 'N/A' }</p>
 
-                    <p>Genres: { this.props.game.basic && this.props.game.basic.genres.map((genre, index) => {
+                    <p>Genres: { this.props.game.basic ? this.props.game.basic.genres.map((genre, index) => {
                       if (index < this.props.game.basic.genres.length-1) {
                         return genre.name + ', ';
                       } else {
                         return genre.name
                       }
-                    })}</p>
+                    }) : 'N/A' }</p>
 
-                    <p>Website: <a href={ this.props.game.details && this.props.game.details.website } target="_blank" rel="noopener noreferrer">{ this.props.game.details && this.props.game.details.website }</a></p>
+                    <p>Website: 
+                      {
+                        this.props.game.details.website ? <a href={ this.props.game.details.website } target="_blank" rel="noopener noreferrer">{ this.props.game.details.website }</a> : <span> N/A</span>
+                      }
+                    </p>
 
                     {/*  RATINGS GO HERE */}
                     <p>Ratings: </p>
