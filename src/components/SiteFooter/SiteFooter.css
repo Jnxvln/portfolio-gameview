@@ -1,6 +1,16 @@
 /*  SiteFooter.css  */
 
+#SITEFOOTER_footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#SITEFOOTER_card {
+  background-color: var(--bgColor);
+}
+
 .SITEFOOTER_disclaimer {
   font-size: 10pt;
-  color: #686868;
+  color: #ffffff;
 }

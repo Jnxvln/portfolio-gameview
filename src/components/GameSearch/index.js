@@ -9,8 +9,6 @@ class GameSearch extends React.Component {
     this.state = {
       maxGamesToFetch: 5,
       searchQuery: '',
-      simpleEndpoint: `https://api.rawg.io/api/games?page_size=${this.maxGamesToFetch}&search=`,
-      detailEndpoint: 'https://api.rawg.io/api/games/',
       gamesFound: []
     };
 
@@ -46,7 +44,13 @@ class GameSearch extends React.Component {
       let encQuery = encodeURI(this.state.searchQuery)
       
       // Fetch all games matching searchQuery and store in gamesFound
-      axios.get(`https://api.rawg.io/api/games?page_size=${this.state.maxGamesToFetch}&search=${encQuery}`).then(res => {
+
+      axios({
+        method: 'get',
+        url: `https://api.rawg.io/api/games?page_size=${this.state.maxGamesToFetch}&search=${encQuery}`,
+        headers: { 'User-Agent': 'axios/0.19.0' }
+      }).then(res => {
+        // console.log('Response: ', res);
         this.setState({
           gamesFound: res.data.results
         }, () => {
@@ -59,16 +63,16 @@ class GameSearch extends React.Component {
   handleChangeMaxGames (event) {
     this.setState({
       maxGamesToFetch: event.target.value
-    }, () => console.log('Max games: ', this.state.maxGamesToFetch))
+    })
   }
 
   render () {
     return (
       <div>
-        <Card>
+        <Card id="GAMESEARCH_card">
           <Card.Body>
-            <h3>Search for a Game</h3>
-            <label>Results: </label>
+            <h3 id="GAMESEARCH_title">Search for a Game</h3>
+            <label id="GAMESEARCH_resultsLabel">Results: </label>
             <select id="GAMESEARCH_gamesToView" value={ this.state.maxGamesToFetch } onChange={ this.handleChangeMaxGames }>
               <option value="5">5</option>
               <option value="10">10</option>

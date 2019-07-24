@@ -1,11 +1,16 @@
 import React from 'react'
+import smiley from './idea.gif'
 import './SearchEmpty.css'
 
 function SearchEmpty (props) {
   return (
-    <p className="SEARCHEMPTY_message">
-      { props.show && <span>Type the name of any game to begin</span> }
-    </p>
+    <div className="SEARCHEMPTY_message">
+      { props.show && <div>
+          <img src={smiley} alt="Cannot find any games"/>
+          <span>Hm? Try searching for a game</span>
+        </div> 
+      }
+    </div>
   );
 }
 

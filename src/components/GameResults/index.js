@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import Game from '../Game'
+import NoGamesFound from '../NoGamesFound'
 import axios from 'axios'
 import './GameResults.css'
 
@@ -68,6 +69,7 @@ class GameResults extends React.Component {
                 })
               }
             </ul>
+            <NoGamesFound show={ this.props.games.length === 0 }/>
           </Card.Body>
         </Card>
       </div>

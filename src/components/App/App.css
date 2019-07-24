@@ -1,1 +1,24 @@
 /* App.css */
+
+:root {
+  --bgColor: #112b47;
+}
+
+body, html {
+  background-color: white;
+}
+
+#APP_header {
+  background-color: var(--bgColor);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#APP_title {
+  color: white;
+}
+
+#APP_pageContainer {
+  position: relative;
+  min-height: 100vh;
+}

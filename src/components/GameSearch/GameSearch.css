@@ -1,5 +1,17 @@
 /*  GameSearch.css  */
 
+#GAMESEARCH_card {
+  background-color: #dae0e7;
+}
+
+#GAMESEARCH_title, #GAMESEARCH_resultsLabel {
+  color: black;
+}
+
 #GAMESEARCH_gamesToView {
   margin: 0 10px;
+}
+
+#GAMESEARCH_search {
+  width: 300px;
 }

@@ -78,36 +78,38 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Container>
+        <div id="APP_pageContainer">
           <Row>
-            <Col>
-              <div className="jumbotron jumbotron-fluid">
-                <h1 className="text-center">Gameview</h1>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <GameSearch returnGamesFound={ this.handleGamesFound } searchEmpty={ this.handleSearchEmpty }/>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <GameResults games={ this.state.gamesFound } gameChosen={ this.handleGameChosen } value={ this.state.gameChosen } clearGame={ this.handleClearGame }/>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <GameDetail game={ this.state.gameChosen } clearGame={ this.handleClearGame }/>
-              <SearchEmpty show={ this.state.isSearchEmpty }/>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <SiteFooter/>
-            </Col>
-          </Row>
-        </Container>
+              <Col>
+                <div id="APP_header" className="jumbotron jumbotron-fluid">
+                  <h1 id="APP_title" className="text-center">Gameview</h1>
+                </div>
+              </Col>
+            </Row>
+          <Container>
+            <Row>
+              <Col>
+                <GameSearch returnGamesFound={ this.handleGamesFound } searchEmpty={ this.handleSearchEmpty }/>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <GameResults games={ this.state.gamesFound } gameChosen={ this.handleGameChosen } value={ this.state.gameChosen } clearGame={ this.handleClearGame }/>
+              </Col>
+            </Row>
+            <Row style={{marginBottom: '3.5rem' }}>
+              <Col>
+                <GameDetail game={ this.state.gameChosen } clearGame={ this.handleClearGame }/>
+                <SearchEmpty show={ this.state.isSearchEmpty }/>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+        <Row>
+          <Col>
+            <SiteFooter/>
+          </Col>
+        </Row>
       </div>
     );
   }
