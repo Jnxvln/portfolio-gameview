@@ -5,6 +5,7 @@ class GameRatings extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      game: null,
       exceptional: 0,
       recommended: 0,
       meh: 0,
@@ -15,7 +16,7 @@ class GameRatings extends React.Component {
   }
 
   componentDidMount () {
-    this.getGameRatings(this.props.game)
+    this.getGameRatings(this.props.game);
   }
 
   getGameRatings (game) {
@@ -37,10 +38,10 @@ class GameRatings extends React.Component {
     return (
       <div>
         <ProgressBar>
-          <ProgressBar variant="success" now={ this.state.exceptional } label={ `${this.state.exceptional}%` } key={1} />
-          <ProgressBar variant="info" now={ this.state.recommended } label={ `${this.state.recommended}%` } key={2} />
-          <ProgressBar variant="warning" now={ this.state.meh } label={ `${this.state.meh}%` } key={3} />
-          <ProgressBar variant="danger" now={ this.state.skip } label={ `${this.state.skip}%` } key={4} />
+          <ProgressBar variant="success" now={ this.state.exceptional } label={ `${this.state.exceptional || 'N/A ' }%` } key={1} />
+          <ProgressBar variant="info" now={ this.state.recommended } label={ `${this.state.recommended || 'N/A ' }%` } key={2} />
+          <ProgressBar variant="warning" now={ this.state.meh } label={ `${this.state.meh || 'N/A ' }%` } key={3} />
+          <ProgressBar variant="danger" now={ this.state.skip } label={ `${this.state.skip || 'N/A ' }%` } key={4} />
         </ProgressBar>
         <br/>
         <div>

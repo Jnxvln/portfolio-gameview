@@ -21,13 +21,20 @@ class App extends React.Component {
     this.handleGamesFound = this.handleGamesFound.bind(this);
     this.handleGameChosen = this.handleGameChosen.bind(this);
     this.handleSearchEmpty = this.handleSearchEmpty.bind(this);
+    this.handleClearGame = this.handleClearGame.bind(this);
+  }
+
+  handleClearGame (game) {
+    this.setState({
+      gameChosen: null
+    })
   }
 
   handleSearchEmpty (value) {
     this.setState({
       isSearchEmpty: value
     }, () => {
-      console.log('Search empty: ', this.state.isSearchEmpty)
+      // console.log('Search empty: ', this.state.isSearchEmpty)
       if (this.state.isSearchEmpty) {
         document.querySelector('#GAMERESULTS_component').style.display = 'none';
         document.querySelector('#GAMEDETAIL_component').style.display = 'none';
@@ -86,12 +93,12 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col>
-              <GameResults games={ this.state.gamesFound } gameChosen={ this.handleGameChosen } value={ this.state.gameChosen }/>
+              <GameResults games={ this.state.gamesFound } gameChosen={ this.handleGameChosen } value={ this.state.gameChosen } clearGame={ this.handleClearGame }/>
             </Col>
           </Row>
           <Row>
             <Col>
-              <GameDetail game={ this.state.gameChosen }/>
+              <GameDetail game={ this.state.gameChosen } clearGame={ this.handleClearGame }/>
               <SearchEmpty show={ this.state.isSearchEmpty }/>
             </Col>
           </Row>

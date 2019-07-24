@@ -18,6 +18,8 @@ class GameDetail extends React.Component {
   }
 
   handleBackToResults () {
+    // Erase the selected game
+    this.props.clearGame();
     // Hide GameDetail component
     document.querySelector('#GAMEDETAIL_component').style.display = 'none';
     // Show GameResults component
@@ -47,7 +49,7 @@ class GameDetail extends React.Component {
                   <div className="GAMEDETAIL_grid_left">
                     <h3>{ this.props.game.basic && this.props.game.basic.name }</h3>
                     <p>Released: { this.props.game.basic && this.props.game.basic.released }</p>
-                    <p>Find it on: { this.props.game.basic && this.props.game.basic.stores.map((store, index) => {
+                    <p>Find it on: { this.props.game.basic.stores && this.props.game.basic.stores.map((store, index) => {
                       if (index < this.props.game.basic.stores.length-1) {
                         return store.store.name + ', ';
                       } else {
@@ -55,7 +57,7 @@ class GameDetail extends React.Component {
                       }
                     })}</p>
 
-                    <p>Play it on: { this.props.game.basic && this.props.game.basic.platforms.map((platform, index) => {
+                    <p>Play it on: { this.props.game.basic.platforms && this.props.game.basic.platforms.map((platform, index) => {
                       if (index < this.props.game.basic.platforms.length-1) {
                         return platform.platform.name + ', ';
                       } else {
