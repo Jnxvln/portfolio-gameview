@@ -51,8 +51,8 @@ class GameDetail extends React.Component {
                 <div className="GAMEDETAIL_grid">
                   <div className="GAMEDETAIL_grid_left">
                     <h3>{ this.props.game.basic.name ? this.props.game.basic.name : 'N/A' }</h3>
-                    <p>Released: { this.props.game.basic.released ? moment(this.props.game.basic.released).format('MM/DD/YYYY') : 'N/A' }</p>
-                    <p>Find it on: { this.props.game.basic.stores ? this.props.game.basic.stores.map((store, index) => {
+                    <p><span className="GAMEDETAIL_label">Released:</span> { this.props.game.basic.released ? moment(this.props.game.basic.released).format('MM/DD/YYYY') : 'N/A' }</p>
+                    <p><span className="GAMEDETAIL_label">Find it on:</span> { this.props.game.basic.stores ? this.props.game.basic.stores.map((store, index) => {
                       if (index < this.props.game.basic.stores.length-1) {
                         return store.store.name + ', ';
                       } else {
@@ -60,7 +60,7 @@ class GameDetail extends React.Component {
                       }
                     }) : 'N/A' }</p>
 
-                    <p>Play it on: { this.props.game.basic.platforms ? this.props.game.basic.platforms.map((platform, index) => {
+                    <p><span className="GAMEDETAIL_label">Play it on:</span> { this.props.game.basic.platforms ? this.props.game.basic.platforms.map((platform, index) => {
                       if (index < this.props.game.basic.platforms.length-1) {
                         return platform.platform.name + ', ';
                       } else {
@@ -68,7 +68,7 @@ class GameDetail extends React.Component {
                       }
                     }) : 'N/A' }</p>
 
-                    <p>Genres: { this.props.game.basic ? this.props.game.basic.genres.map((genre, index) => {
+                    <p><span className="GAMEDETAIL_label">Genres:</span> { this.props.game.basic ? this.props.game.basic.genres.map((genre, index) => {
                       if (index < this.props.game.basic.genres.length-1) {
                         return genre.name + ', ';
                       } else {
@@ -76,14 +76,14 @@ class GameDetail extends React.Component {
                       }
                     }) : 'N/A' }</p>
 
-                    <p>Website: 
+                    <p><span className="GAMEDETAIL_label">Website: </span>
                       {
                         this.props.game.details.website ? <a href={ this.props.game.details.website } target="_blank" rel="noopener noreferrer">{ this.props.game.details.website }</a> : <span> N/A</span>
                       }
                     </p>
 
                     {/* GAME RATINGS */}
-                    <p>Ratings: </p>
+                    <p><span className="GAMEDETAIL_label">Ratings:</span> </p>
                     <div>
                       <GameRatings game={this.props.game} />
                     </div>
@@ -102,7 +102,7 @@ class GameDetail extends React.Component {
 
                 {/* DESCRIPTION */}
                 <div className="GAMEDETAIL_description">
-                  <p>Description: </p>
+                  <p><span className="GAMEDETAIL_label">Description:</span> </p>
                   <ReadMoreText limit={50} text={ this.props.game.details && this.props.game.details.description }/>
                 </div>
 

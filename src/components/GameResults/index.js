@@ -52,7 +52,6 @@ class GameResults extends React.Component {
       <div id="GAMERESULTS_component">
         <Card className="mt-4">
           <Card.Body>
-            <h3>Game Results</h3>
             {
               /* If a game has previously been chosen, render a "Back To Game" button */
               this.props.value && <button type="button" onClick={ this.handleBackToGame }>Back to Game</button>
